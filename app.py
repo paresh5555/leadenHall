@@ -1,10 +1,20 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import google.generativeai as genai
 
 # Read data
 broker_df = pd.read_excel('./data/2024 Dashboard Data.xlsx', sheet_name='Broker stats')
 class_df = pd.read_excel('./data/2024 Dashboard Data.xlsx', sheet_name='Class stats')
+
+genai.configure(api_key='AIzaSyCXnLt0axHYvQ9dDLHltCWY1UaOTTxmvPU')
+model = genai.GenerativeModel('gemini-pro')
+
+
+def respond(msg):
+    return model.generate_content(
+        msg + 'table1' + broker_df.to_csv(index=False) + 'table2' + class_df.to_csv(index=False)).text
+
 
 # UI customization
 st.set_page_config(layout="wide", page_title="Gemini Powered NLP Bot", page_icon="🤖")
