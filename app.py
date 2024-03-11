@@ -17,7 +17,7 @@ def respond(msg):
 
 
 # UI customization
-st.set_page_config(layout="wide", page_title="Gemini Powered NLP Bot", page_icon="🤖")
+st.set_page_config(layout="wide", page_title="LeadenHall Project ", page_icon="🤖")
 
 # Change theme
 st.markdown(
@@ -42,7 +42,7 @@ st.markdown(
 
 # Sidebar
 st.sidebar.title("Chatbot")
-st.sidebar.markdown('''Disclaimer: If you don't get the expected    answer try sending query again''')
+st.sidebar.markdown('''Enter your queries here :) ''')
 user_input = st.sidebar.text_input("You:", "")
 
 if st.sidebar.button("Send"):
